@@ -21,7 +21,7 @@ sudo virt-customize -a jammy-server-cloudimg-amd64.img --install qemu-guest-agen
 sudo qm destroy $VM_ID
 
 ##TODO: Change name
-sudo qm create $VM_ID --name "ubuntu-2204-cloudinit-template" --memory 2048 --cores 2 --net virtio,bridge=vmbr0
+sudo qm create $VM_ID --name "ubuntu-2204-cloudinit-template" --memory 2048 --cores 2 --net0 virtio,bridge=vmbr0
 ## TOOD: Resize Disk
 sudo qm importdisk $VM_ID jammy-server-cloudimg-amd64.img vm_pool
 
