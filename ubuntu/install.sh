@@ -8,6 +8,7 @@ IMAGE="jammy-server-cloudimg-amd64.img"
 CHECKSUMS="SHA256SUMS" 
 VM_ID=8002 
 NAME=jammy-server-cloudimg-amd64.img 
+
 wget "$REPO/$IMAGE"
 
 wget "$REPO/$CHECKSUMS"
@@ -19,8 +20,6 @@ sudo qm destroy $VM_ID
 
 ##TODO: Change name
 sudo qm create $VM_ID --name "ubuntu-2204-cloudinit-template" --memory 2048 --cores 2 --net0 virtio,bridge=vmbr0
-
-qemu-img resize $NAME 50G
 
 sudo qm importdisk $VM_ID $NAME vm_pool
 
